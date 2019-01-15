@@ -1,6 +1,14 @@
 var test = require('tape')
 var utils = require('../lib/utils')
 
+test('ngrams', function (t) {
+  const text = 'The quick fox'
+  const expected = ['The', ' qu', 'ick', ' fo']
+  const got = utils.ngrams(text, 3)
+  t.deepEqual(got, expected)
+  t.end()
+})
+
 test('usage', function (t) {
   var got = utils.usage()
   t.true(got.match(/usage/), 'returns some instructions')
