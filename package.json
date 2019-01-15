@@ -1,0 +1,27 @@
+{
+  "name": "chief-naming-officer",
+  "version": "0.1.0",
+  "description": "Using markov chains to find name ideas for projects and such.",
+  "bin": {
+    "chief-naming-officer": "lib/cli.js"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "standard lib/*.js test/*.js",
+    "pretest": "npm run lint",
+    "test": "tape test/*.test.js"
+  },
+  "keywords": [
+    "generator-npm-pasta"
+  ],
+  "author": "defvol",
+  "license": "ISC",
+  "repository": "defvol/chief-naming-officer",
+  "devDependencies": {
+    "standard": "^12.0.1",
+    "tape": "^4.9.2"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
+}
