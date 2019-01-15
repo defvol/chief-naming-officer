@@ -1,6 +1,23 @@
 var test = require('tape')
 var utils = require('../lib/utils')
 
+test('next', function (t) {
+  const transitions = {
+    'a': ['a', 'a', 'a', 'a', 'b'],
+    'b': ['a', 'b']
+  }
+
+  let freq = { a: 0, b: 0 }
+  for (let i = 0; i < 100; i++) {
+    let next = utils.next(transitions, 'a')
+    freq[next]++
+  }
+
+  t.true(freq['a'] > 60 && freq['a'] < 100)
+  t.true(freq['b'] > 0 && freq['b'] < 40)
+  t.end()
+})
+
 test('ngrams', function (t) {
   const text = 'The quick fox'
   const expected = ['The', ' qu', 'ick', ' fo']
