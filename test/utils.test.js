@@ -1,6 +1,14 @@
 var test = require('tape')
 var utils = require('../lib/utils')
 
+test('getStartingNgrams', function (t) {
+  const text = 'The quick fox jumped over a lazy dog'
+  const expected = ['The', ' qu', ' fo', 'ove', ' la']
+  const ngrams = utils.ngrams(text, 3)
+  t.deepEqual(utils.getStartingNgrams(ngrams), expected)
+  t.end()
+})
+
 test('next', function (t) {
   const transitions = {
     'a': ['a', 'a', 'a', 'a', 'b'],
