@@ -3,7 +3,7 @@ var utils = require('../lib/utils')
 
 test('getStartingNgrams', function (t) {
   const text = 'The quick fox jumped over a lazy dog'
-  const expected = ['The', ' qu', ' fo', 'ove', ' la']
+  const expected = ['The', ' qu', ' fo', 'ove', ' la', 'dog']
   const ngrams = utils.ngrams(text, 3)
   t.deepEqual(utils.getStartingNgrams(ngrams), expected)
   t.end()
@@ -38,10 +38,10 @@ test('transitions', function (t) {
   const text = 'it is what it is supposed to be, is it?'
   const ngrams = utils.ngrams(text, 3)
   const got = utils.transitions(ngrams)
-  t.deepEqual(got['is '], ['wha'])
+  t.deepEqual(got['is '], ['wha', 'it?'])
   t.deepEqual(got['e, '], ['is '])
   t.deepEqual(got['t i'], ['t i', 's s'])
-  t.equal(ngrams.length, 12)
+  t.equal(ngrams.length, 13)
   t.equal(Object.keys(got).length, 10)
   t.end()
 })
